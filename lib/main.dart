@@ -11,13 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Register Screen',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Register Screen'),
     );
   }
 }
@@ -32,41 +31,72 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+    return Stack(
+      children: [
+     Container(
+      decoration: BoxDecoration(
+         image: DecorationImage(
+           image: AssetImage('images/background.jpg'),
+           fit: BoxFit.cover,
+    ),
+    ),
+    ),
+      Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SafeArea (
+          child: Column(
+            children: [
+              Container(
+                height: 150,
+                margin: EdgeInsets.only(top: 20),
+                child: Center(
+                  child: const Text("Register",
+                    style: TextStyle(
+                      fontSize: 60,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Container(
+                child:
+                    Container(
+                      width: 300,
+                      height: 450,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.8),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: 100,
+                          height: 120,
+                          child: Icon(Icons.add_circle_outline,
+                          size: 60,
+                            color: Colors.orange[300],
+                          ),
+                        ),
 
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+                      ],
+                    ),
+                    ),
+
+                ),
+
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ],
     );
+
   }
 }
