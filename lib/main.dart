@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:register_screen/logged.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Register Screen',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Register Screen'),
@@ -46,52 +47,158 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
       Scaffold(
         backgroundColor: Colors.transparent,
-        body: SafeArea (
-          child: Column(
-            children: [
-              Container(
-                height: 150,
-                margin: EdgeInsets.only(top: 20),
-                child: Center(
-                  child: const Text("Register",
-                    style: TextStyle(
-                      fontSize: 60,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+        body: Container(
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.4),
+
+          ),
+          child: SafeArea (
+            child: Column(
+              children: [
+                Container(
+                  height: 100,
+                  margin: EdgeInsets.only(top: 80),
+                  child: Center(
+                    child: const Text("Register",
+                      style: TextStyle(
+                        fontSize: 60,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Container(
-                child:
-                    Container(
-                      width: 300,
-                      height: 450,
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.8),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          width: 100,
-                          height: 120,
-                          child: Icon(Icons.add_circle_outline,
-                          size: 60,
-                            color: Colors.orange[300],
-                          ),
-                        ),
-
-                      ],
-                    ),
-                    ),
-
+                SizedBox(
+                  height: 50,
                 ),
+                Container(
+                  child:
+                      Container(
+                        width: 300,
+                        height: 450,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
 
-            ],
+                          Container(
+                            margin: EdgeInsets.only(bottom: 30, top: 30),
+                            height: 50,
+                            width: 600,
+
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  hintText: "Login",
+                                  prefixIcon: Icon(Icons.login_outlined,
+                                    color: Colors.white,
+                                    size: 30,),
+                                hintStyle: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+
+                          Container(
+                            margin: EdgeInsets.only(bottom: 30),
+                            height: 50,
+                            width: 600,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: "Email",
+                                prefixIcon: Icon(Icons.email_outlined,
+                                  color: Colors.white,
+                                  size: 30,),
+                                hintStyle: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+
+                          Container(
+                            margin: EdgeInsets.only(bottom: 30),
+                            height: 50,
+                            width: 600,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: "Password",
+                                prefixIcon: Icon(Icons.password,
+                                  color: Colors.white,
+                                  size: 30,),
+                                hintStyle: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+
+                          Container(
+                            margin: EdgeInsets.only(bottom: 15),
+                            height: 50,
+                            width: 600,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: "Confirm Password",
+                                prefixIcon: Icon(Icons.password,
+                                  color: Colors.white,
+                                  size: 30,),
+                                hintStyle: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        Text("Already have account? Click here",
+                        style: TextStyle(color: Colors.white),
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(height: 40,),
+                            Container(
+                              width: double.infinity,
+                              child: GestureDetector(
+                                onTap: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>logged()));
+                                  },
+                                child: Container(
+
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  child: Center(
+                                      child: Text("SIGN UP",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),)
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        ],
+                      ),
+                      ),
+
+                  ),
+
+              ],
+            ),
           ),
         ),
       ),
