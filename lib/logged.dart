@@ -13,39 +13,41 @@ class logged extends StatefulWidget {
 class _loggedState extends State<logged> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child:
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-      Container(
-          child: Text("Zostales zalogowany")),
-      SizedBox(height: 40,),
-      Container(
-        width: double.infinity,
-        child: GestureDetector(
-          onTap: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyApp()));
-          },
-          child: Container(
+    return Scaffold(
+      body: SafeArea(
+        child:
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+                child: Text("Zostales zalogowany")),
+            SizedBox(height: 40,),
+            Container(
+              width: double.infinity,
+              child: GestureDetector(
+                onTap: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyApp()));
+                },
+                child: Container(
 
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(16),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Center(
+                      child: Text("BACK",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),)
+                  ),
+                ),
+              ),
             ),
-            child: Center(
-                child: Text("BACK",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),)
-            ),
-          ),
+          ],
         ),
       ),
-    ],
-    ),
     );
   }
 }
